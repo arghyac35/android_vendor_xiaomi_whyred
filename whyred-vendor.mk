@@ -16,10 +16,13 @@
 
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/whyred/proprietary/bin/dpmd:system/bin/dpmd \
+    vendor/xiaomi/whyred/proprietary/bin/perfservice:system/bin/perfservice \
     vendor/xiaomi/whyred/proprietary/bin/wfdservice:system/bin/wfdservice \
+    vendor/xiaomi/whyred/proprietary/etc/init/perfservice.rc:system/etc/init/perfservice.rc \
     vendor/xiaomi/whyred/proprietary/etc/dpm/dpm.conf:system/etc/dpm/dpm.conf \
     vendor/xiaomi/whyred/proprietary/etc/init/dpmd.rc:system/etc/init/dpmd.rc \
     vendor/xiaomi/whyred/proprietary/etc/init/wfdservice.rc:system/etc/init/wfdservice.rc \
+    vendor/xiaomi/whyred/proprietary/etc/perf/whitelistedapps.xml:system/etc/perf/whitelistedapps.xml \
     vendor/xiaomi/whyred/proprietary/etc/permissions/cneapiclient.xml:system/etc/permissions/cneapiclient.xml \
     vendor/xiaomi/whyred/proprietary/etc/permissions/com.qti.dpmframework.xml:system/etc/permissions/com.qti.dpmframework.xml \
     vendor/xiaomi/whyred/proprietary/etc/permissions/com.qti.location.sdk.xml:system/etc/permissions/com.qti.location.sdk.xml \
@@ -78,6 +81,11 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/whyred/proprietary/lib/libmmparser_lite.so:system/lib/libmmparser_lite.so \
     vendor/xiaomi/whyred/proprietary/lib/libmmrtpdecoder.so:system/lib/libmmrtpdecoder.so \
     vendor/xiaomi/whyred/proprietary/lib/libmmrtpencoder.so:system/lib/libmmrtpencoder.so \
+    vendor/xiaomi/whyred/proprietary/lib/libqti-at.so:system/lib/libqti-at.so \
+    vendor/xiaomi/whyred/proprietary/lib/libqti-iopd-client_system.so:system/lib/libqti-iopd-client_system.so \
+    vendor/xiaomi/whyred/proprietary/lib/libqti-perfd-client_system.so:system/lib/libqti-perfd-client_system.so \
+    vendor/xiaomi/whyred/proprietary/lib/libqti-util_system.so:system/lib/libqti-util_system.so \
+    vendor/xiaomi/whyred/proprietary/lib/libqti_performance.so:system/lib/libqti_performance.so \
     vendor/xiaomi/whyred/proprietary/lib/libwfdavenhancements.so:system/lib/libwfdavenhancements.so \
     vendor/xiaomi/whyred/proprietary/lib/libwfdclient.so:system/lib/libwfdclient.so \
     vendor/xiaomi/whyred/proprietary/lib/libwfdcodecv4l2.so:system/lib/libwfdcodecv4l2.so \
@@ -134,6 +142,15 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/whyred/proprietary/lib64/vendor.qti.gnss@2.0.so:system/lib64/vendor.qti.gnss@2.0.so \
     vendor/xiaomi/whyred/proprietary/lib64/vendor.qti.hardware.soter@1.0.so:system/lib64/vendor.qti.hardware.soter@1.0.so \
     vendor/xiaomi/whyred/proprietary/lib64/vendor.qti.hardware.vpp@1.1.so:system/lib64/vendor.qti.hardware.vpp@1.1.so \
+    vendor/xiaomi/whyred/proprietary/lib/vendor.qti.hardware.iop@1.0.so:system/lib/vendor.qti.hardware.iop@1.0.so \
+    vendor/xiaomi/whyred/proprietary/lib/vendor.qti.hardware.iop@2.0.so:system/lib/vendor.qti.hardware.iop@2.0.so \
+    vendor/xiaomi/whyred/proprietary/lib64/libqti-at.so:system/lib64/libqti-at.so \
+    vendor/xiaomi/whyred/proprietary/lib64/libqti-iopd-client_system.so:system/lib64/libqti-iopd-client_system.so \
+    vendor/xiaomi/whyred/proprietary/lib64/libqti-perfd-client_system.so:system/lib64/libqti-perfd-client_system.so \
+    vendor/xiaomi/whyred/proprietary/lib64/libqti-util_system.so:system/lib64/libqti-util_system.so \
+    vendor/xiaomi/whyred/proprietary/lib64/libqti_performance.so:system/lib64/libqti_performance.so \
+    vendor/xiaomi/whyred/proprietary/lib64/vendor.qti.hardware.iop@1.0.so:system/lib64/vendor.qti.hardware.iop@1.0.so \
+    vendor/xiaomi/whyred/proprietary/lib64/vendor.qti.hardware.iop@2.0.so:system/lib64/vendor.qti.hardware.iop@2.0.so \
     vendor/xiaomi/whyred/proprietary/vendor/bin/ATFWD-daemon:$(TARGET_COPY_OUT_VENDOR)/bin/ATFWD-daemon \
     vendor/xiaomi/whyred/proprietary/vendor/bin/adsprpcd:$(TARGET_COPY_OUT_VENDOR)/bin/adsprpcd \
     vendor/xiaomi/whyred/proprietary/vendor/bin/cnd:$(TARGET_COPY_OUT_VENDOR)/bin/cnd \
@@ -1414,6 +1431,8 @@ PRODUCT_PACKAGES += \
     datastatusnotification \
     embms \
     CNEService \
+    QPerformance \
+    UxPerformance \
     WfdService \
     com.qualcomm.location \
     dpmserviceapp \
